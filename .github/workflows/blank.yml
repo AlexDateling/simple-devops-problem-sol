@@ -29,10 +29,10 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secret.DOCKERHUB_USERNAME }}
+          password: ${{ secret.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:${{ secrets.DOCKER_IMAGE_VERSION }} .
+        run: docker build -t ${{ secret.DOCKERHUB_USERNAME }}/${{ secret.DOCKER_IMAGE_NAME }}:${{ secret.DOCKER_IMAGE_VERSION }} .
 
       
